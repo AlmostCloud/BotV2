@@ -17,8 +17,10 @@ cd ~
 echo "Installing python3-pip and docker."
 sudo apt update
 sudo apt install -y python3-pip docker.io
-sudo docker build -t ubuntu-22.04-with-tmate .
-wget -O main.py https://raw.githubusercontent.com/AlmostCloud/discord-vps-creator/refs/heads/main/v2
+sudo apt install python3 -y
+git clone https://github.com/AlmostCloud/katy-vps-fix.git
+cd katy-vps-fix
+docker build -t ubuntu-22.04-with-tmate -f Dockerfile1 . && docker build -t debian-with-tmate -f Dockerfile2 .
 echo Downloaded successfully
 echo "Installing Python packages: discord and docker..."
 pip3 install discord docker
